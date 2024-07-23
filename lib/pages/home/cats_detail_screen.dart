@@ -9,6 +9,8 @@ import '../../models/CatsBreedModel.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/app_colors.dart';
+import '../../utils/dimensions.dart';
+import '../../widgets/pager_image_view.dart';
 
 class CatsDetailScreen extends StatelessWidget {
 
@@ -25,8 +27,8 @@ class CatsDetailScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ImageWithErrorHandler(imageUrl: 'https://cdn2.thecatapi.com/images/${cat.referenceImageId}.jpg'),
-          SizedBox(height: 16.0),
+          PagerViewScreen(catId: cat.id!,),
+          SizedBox(height: Dimensions.height10),
           Expanded(
             child: SingleChildScrollView(
               padding: EdgeInsets.all(16.0),

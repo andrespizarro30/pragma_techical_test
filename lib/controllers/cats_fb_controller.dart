@@ -13,8 +13,8 @@ class CatsFBController extends GetxController{
   Map<String, int> _likes = Map();
   Map<String, int> get likes => _likes;
 
-  void sentLike(String catId){
-    fbRepository.sentLike(catId);
+  void sentLike(String catId, String catBreed){
+    fbRepository.sentLike(catId, catBreed);
     getTotalLikes(catId);
   }
 

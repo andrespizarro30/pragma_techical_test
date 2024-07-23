@@ -3,14 +3,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:technicaltestpragma/utils/app_constants.dart';
 import 'package:technicaltestpragma/utils/use_sharedpreferences.dart';
 
+import '../../push_notifications/send_notification.dart';
+
 class FBRepository{
 
   final UseSharedPreference useSharedPreference;
   final FirebaseDatabase firebaseDatabase;
+  final SendNotification sendNotification;
 
-  FBRepository({required this.useSharedPreference,required this.firebaseDatabase});
+  FBRepository({required this.useSharedPreference,required this.firebaseDatabase,required this.sendNotification});
 
-  void sentLike(String catId) async{
+  void sentLike(String catId, String catBreed) async{
 
     Map<String,int> likeData = {
       "likes": 1,
@@ -30,6 +33,8 @@ class FBRepository{
     });
 
     useSharedPreference.saveLike(catId);
+
+    sendNotification.sendLikeNotification(catBreed);
 
   }
 

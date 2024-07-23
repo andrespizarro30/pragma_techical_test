@@ -40,7 +40,7 @@ class CatDetailColumn extends StatelessWidget {
               IconButton(
                   onPressed: (){
                     !controller.getLike(cat.id!)! ?
-                    controller.sentLike(cat.id!) :
+                    controller.sentLike(cat.id!, cat.name!) :
                     controller.disLike(cat.id!);
                     controller.listenLikes();
                   },

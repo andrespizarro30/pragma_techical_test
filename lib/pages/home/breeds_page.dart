@@ -9,6 +9,7 @@ import 'package:technicaltestpragma/widgets/cat_list_item.dart';
 import 'package:technicaltestpragma/pages/home/cats_detail_screen.dart';
 import 'package:technicaltestpragma/widgets/waiting_container.dart';
 
+import '../../push_notifications/push_notification_system.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/search_text.dart';
 
@@ -26,6 +27,9 @@ class _BreedsPageState extends State<BreedsPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    initNotificationService();
+
   }
 
   @override
@@ -80,6 +84,14 @@ class _BreedsPageState extends State<BreedsPage> {
 
   void filterItems(String query) {
     Get.find<BreedPageController>().filterCatBreedList(query);
+  }
+
+  void initNotificationService() async{
+
+    PushNotificationSystem pushNotificationSystem = PushNotificationSystem(context: context);
+    pushNotificationSystem.initializeCloudMessaging();
+    pushNotificationSystem.generateMessagingToken();
+
   }
 
 }

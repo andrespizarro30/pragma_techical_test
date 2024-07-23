@@ -23,7 +23,7 @@ class BreedPageController extends GetxController{
     _loading=true;
     update();
 
-    Response response = await apiRepository.getAllProductsList();
+    Response response = await apiRepository.getAllBreedList();
     if(response.statusCode == 200){
       _catsBreedList=[];
       _catsBreedList.addAll(CatsBreedListModel.fromJson(response.body).catBreedsList);
