@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SearchWidget extends StatelessWidget {
+class SearchWidget extends StatefulWidget {
 
   final Function(String) filterItems;
 
@@ -10,14 +10,28 @@ class SearchWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  State<SearchWidget> createState() => _SearchWidgetState();
+}
 
-    TextEditingController textEditingController = TextEditingController();
+class _SearchWidgetState extends State<SearchWidget> {
+
+  TextEditingController textEditingController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    textEditingController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
 
     return TextField(
       controller: textEditingController,
       onChanged: (query){
-        filterItems(query);
+        widget.filterItems(query);
       },
       decoration: InputDecoration(
         labelText: 'Search',
@@ -51,7 +65,7 @@ class SearchWidget extends StatelessWidget {
           icon: Icon(Icons.clear),
           onPressed: () {
             textEditingController.clear();
-            filterItems('');
+            widget.filterItems('');
           },
         ):
         Icon(Icons.search),

@@ -63,7 +63,7 @@ class _PagerViewScreenState extends State<PagerViewScreen> {
       Column(
         children: [
           Container(
-            color: AppColors.appWhite,
+            color: AppColors.iconColor1,
             height: Dimensions.pageView * 1.1,
             child: PageView.builder(
                 controller: pageController,
