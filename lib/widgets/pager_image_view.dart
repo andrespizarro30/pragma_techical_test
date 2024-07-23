@@ -12,7 +12,7 @@ import 'image_error_handler.dart';
 
 class PagerViewScreen extends StatefulWidget {
 
-  String catId;
+  final String catId;
 
   PagerViewScreen({super.key,
     required this.catId
@@ -70,7 +70,7 @@ class _PagerViewScreenState extends State<PagerViewScreen> {
                 itemCount: controller.catsBreedImageList.length,
                 itemBuilder: (context, index){
                   return Container(
-                      child: _buildPageItem(index,controller.catsBreedImageList![index])
+                      child: _buildPageItem(index,controller.catsBreedImageList[index])
                   );
                 }
             ),

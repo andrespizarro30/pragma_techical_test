@@ -3,7 +3,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:technicaltestpragma/controllers/breed_page_controler.dart';
-import 'package:technicaltestpragma/routes/route_helper.dart';
 import 'package:technicaltestpragma/utils/app_colors.dart';
 import 'package:technicaltestpragma/widgets/cat_list_item.dart';
 import 'package:technicaltestpragma/pages/home/cats_detail_screen.dart';
