@@ -1,9 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:technicaltestpragma/controllers/cats_fb_controller.dart';
-import 'package:technicaltestpragma/utils/use_sharedpreferences.dart';
 import 'package:technicaltestpragma/widgets/small_text.dart';
 import 'package:technicaltestpragma/widgets/starts_widget.dart';
 

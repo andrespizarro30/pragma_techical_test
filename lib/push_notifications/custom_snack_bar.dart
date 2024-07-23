@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:technicaltestpragma/utils/app_colors.dart';
 
 import '../widgets/big_text.dart';
 

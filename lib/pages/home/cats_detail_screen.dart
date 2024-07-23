@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:technicaltestpragma/widgets/image_error_handler.dart';
 import 'package:technicaltestpragma/widgets/starts_widget.dart';
 
 import '../../models/CatsBreedModel.dart';
@@ -148,28 +146,28 @@ class CatsDetailScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         InkWell(
-          onTap: () => launch(cat.cfaUrl!),
+          onTap: () => launchUrl(Uri.parse(cat.cfaUrl!)),
           child: Text(
             'CFA',
             style: TextStyle(color: Colors.blue),
           ),
         ),
         InkWell(
-          onTap: () => launch(cat.vetstreetUrl!),
+          onTap: () => launchUrl(Uri.parse(cat.vetstreetUrl!)),
           child: Text(
             'Vetstreet',
             style: TextStyle(color: Colors.blue),
           ),
         ),
         InkWell(
-          onTap: () => launch(cat.vcahospitalsUrl!),
+          onTap: () => launchUrl(Uri.parse(cat.vcahospitalsUrl!)),
           child: Text(
             'VCA Hospitals',
             style: TextStyle(color: Colors.blue),
           ),
         ),
         InkWell(
-          onTap: () => launch(cat.wikipediaUrl!),
+          onTap: () => launchUrl(Uri.parse(cat.wikipediaUrl!)),
           child: Text(
             'Wikipedia',
             style: TextStyle(color: Colors.blue),

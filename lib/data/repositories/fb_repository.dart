@@ -1,5 +1,4 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:technicaltestpragma/utils/app_constants.dart';
 import 'package:technicaltestpragma/utils/use_sharedpreferences.dart';
 
@@ -86,9 +85,7 @@ class FBRepository{
   }
 
   void _onChildAdded(DatabaseEvent event) {
-    var catId = event.snapshot.key;
-    var likes = event.snapshot.value;
-    String a = "";
+
   }
 
   void _onChildChanged(DatabaseEvent event) {
