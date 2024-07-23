@@ -38,11 +38,11 @@ class CatItemScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-                bottom: -Dimensions.height30,
+                bottom: -Dimensions.height20,
                 right: Dimensions.width10 / 5,
                 left: Dimensions.width10 / 5,
                 child: Container(
-                    height: Dimensions.pageViewTextContainer * 1.1,
+                    height: Dimensions.pageViewTextContainer * 1.2,
                     margin: EdgeInsets.only(left: Dimensions.width30,right: Dimensions.width30,bottom: Dimensions.height40),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(Dimensions.radius30),
@@ -64,8 +64,8 @@ class CatItemScreen extends StatelessWidget {
                         ]
                     ),
                     child: Container(
-                        padding: EdgeInsets.only(top: Dimensions.height10,left: Dimensions.width15,right: Dimensions.width15),
-                        child: CatDetailColumn(name: cat.name!, temperament: cat.temperament!, origin: cat.origin!,mediaStats: calculateStatsMedia(cat))
+                        padding: EdgeInsets.only(top: 0,left: Dimensions.width15,right: Dimensions.width15),
+                        child: CatDetailColumn(cat: cat,mediaStats: calculateStatsMedia(cat))
                     )
                 )
             )

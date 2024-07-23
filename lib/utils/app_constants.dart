@@ -7,6 +7,8 @@ class AppConstants{
 
   static const String ALL_BREEDS_LIST = "/breeds";
 
+  static const String FB_CATS_REPO = "CatsRepo";
+
   static const String FIREBASE_MESSAGING_AUTH_TOKEN = "AAAAh5w2eLs:APA91bGm5wCm_hD9DyRiy-1D-OAn5pThJzDGEuN7VxNAHO74QBCEoWgvxJJfAaIcRhECKZkqMKfrbqw0hK-lOHqSw3_WWtnL98mHTmc13g0-tdqXhZ0Wk1HqEDvQLRJOO67Zv6Sk8czO";
 
   static const String GOOGLEMAPSANDROIDKEY = "AIzaSyAkBBvSMGpO4EoLTNjkLr7V-HzvdRlTY14";
