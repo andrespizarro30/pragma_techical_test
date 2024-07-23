@@ -6,7 +6,7 @@ import 'package:technicaltestpragma/controllers/breed_page_controler.dart';
 import 'package:technicaltestpragma/routes/route_helper.dart';
 import 'package:technicaltestpragma/utils/app_colors.dart';
 import 'package:technicaltestpragma/widgets/cat_list_item.dart';
-import 'package:technicaltestpragma/widgets/cats_detail_screen.dart';
+import 'package:technicaltestpragma/pages/home/cats_detail_screen.dart';
 import 'package:technicaltestpragma/widgets/waiting_container.dart';
 
 import '../../utils/dimensions.dart';

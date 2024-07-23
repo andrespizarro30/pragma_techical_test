@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import 'package:technicaltestpragma/widgets/image_error_handler.dart';
 import 'package:technicaltestpragma/widgets/starts_widget.dart';
 
-import '../models/CatsBreedModel.dart';
+import '../../models/CatsBreedModel.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-import '../utils/app_colors.dart';
+import '../../utils/app_colors.dart';
 
 class CatsDetailScreen extends StatelessWidget {
 
@@ -71,6 +71,11 @@ class CatsDetailScreen extends StatelessWidget {
 
   Widget buildCharacteristicsTable(CatBreedModel cat) {
     return Table(
+      columnWidths: {
+        0: FixedColumnWidth(200.0),
+        1: FlexColumnWidth(0.2),
+        2: FlexColumnWidth(1)
+      },
       children: [
         TableRow(children: [
           Text('Adaptability'),

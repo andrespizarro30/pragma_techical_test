@@ -11,11 +11,8 @@ class ImageWithErrorHandler extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.buttonBackGroundColor,
-        borderRadius: BorderRadius.circular(Dimensions.radius30)
-    ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(Dimensions.radius30),
       child: Image.network(
         width: Dimensions.screenWidth * 0.8,
         height: Dimensions.screenHeight * 0.5,

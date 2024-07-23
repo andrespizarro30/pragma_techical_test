@@ -18,20 +18,19 @@ class CatItemScreen extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: Dimensions.height10,horizontal: Dimensions.width20),
       child: Card(
+        elevation: 20,
+        shadowColor: AppColors.appBlue,
         color: AppColors.iconColor1,
+        surfaceTintColor: Colors.black,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
+          borderRadius: BorderRadius.circular(Dimensions.radius30),
         ),
         child: Stack(
           children: [
             Center(
               child: Container(
                   height: Dimensions.pageViewContainer,
-                  width: Dimensions.screenWidth,
-                  margin: EdgeInsets.only(left: Dimensions.width10,right: Dimensions.width10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius30),
-                  ),
+                  width: Dimensions.screenWidth * 0.9,
                   child: ImageWithErrorHandler(
                     imageUrl: 'https://cdn2.thecatapi.com/images/${cat.referenceImageId}.jpg',
                   )
