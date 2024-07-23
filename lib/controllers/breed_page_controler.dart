@@ -12,8 +12,11 @@ class BreedPageController extends GetxController{
 
   List<CatBreedModel> _catsBreedList = [];
   List<CatBreedModel> get catsBreedList => _catsBreedList;
+  set catsBreedList(List<CatBreedModel> _catsBreedList) {}
+
   List<CatBreedModel> _catsBreedListCopy = [];
   List<CatBreedModel> get catsBreedListCopy => _catsBreedListCopy;
+  set catsBreedListCopy(List<CatBreedModel> _catsBreedListCopy) {}
 
   bool _loading = false;
   bool get loading => _loading;
