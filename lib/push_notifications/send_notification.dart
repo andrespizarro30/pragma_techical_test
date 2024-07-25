@@ -32,10 +32,7 @@ class SendNotification{
 
     var bodyEncoded = json.encode(body);
 
-    String url="https://fcm.googleapis.com/v1/projects/kapitaltaskmanager/messages:send";
-
-
-    final response = await http.post(Uri.parse(url),headers: headers,body: bodyEncoded,encoding: Encoding.getByName('utf-8'));
+    final response = await http.post(Uri.parse(AppConstants.FCM_URL),headers: headers,body: bodyEncoded,encoding: Encoding.getByName('utf-8'));
 
     if (response.statusCode == 200) {
       return true;

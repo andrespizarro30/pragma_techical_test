@@ -29,15 +29,17 @@ class CatItemScreen extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                  height: Dimensions.pageViewContainer,
+                  height: Dimensions.pageViewContainer * 1.5,
                   width: Dimensions.screenWidth * 0.9,
                   child: ImageWithErrorHandler(
                     imageUrl: 'https://cdn2.thecatapi.com/images/${cat.referenceImageId}.jpg',
+                    height: Dimensions.screenWidth! * 0.8,
+                    width: Dimensions.screenHeight! * 0.5,
                   )
               ),
             ),
             Positioned(
-                bottom: -Dimensions.height20,
+                bottom: -Dimensions.height25,
                 right: Dimensions.width10 / 5,
                 left: Dimensions.width10 / 5,
                 child: Container(

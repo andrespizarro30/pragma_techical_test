@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:technicaltestpragma/widgets/small_text.dart';
-
 import '../utils/app_colors.dart';
 
 class StarsWidget extends StatelessWidget {

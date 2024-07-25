@@ -6,16 +6,16 @@ import '../utils/dimensions.dart';
 class ImageWithErrorHandler extends StatelessWidget {
 
   final String imageUrl;
+  final double height;
+  final double width;
 
-  ImageWithErrorHandler({required this.imageUrl});
+  ImageWithErrorHandler({required this.imageUrl, required this.height, required this.width});
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(Dimensions.radius30),
       child: Image.network(
-        width: Dimensions.screenWidth * 0.8,
-        height: Dimensions.screenHeight * 0.5,
         imageUrl,
         errorBuilder: (context, error, stackTrace) {
           return Column(

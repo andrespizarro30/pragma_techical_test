@@ -149,16 +149,11 @@ class _PagerViewScreenState extends State<PagerViewScreen> {
     return Transform(
       transform: matrix,
       child: Container(
-          height: Dimensions.pageViewContainer * 0.9,
-          width: Dimensions.screenWidth * 0.8,
           margin: EdgeInsets.only(left: Dimensions.width10,right: Dimensions.width10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimensions.radius30),
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(Dimensions.radius30),
-            child: ImageWithErrorHandler(imageUrl: catsImages.url!),
-          ),
+          child: ImageWithErrorHandler(imageUrl: catsImages.url!, height: catsImages.height!.toDouble(), width: catsImages.width!.toDouble()),
       )
     );
   }
