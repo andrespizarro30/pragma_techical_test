@@ -1,7 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:get/get.dart';
+import 'package:technicaltestpragma/controllers/breed_details_page_controller.dart';
 import 'package:technicaltestpragma/widgets/cat_detail_column.dart';
 import 'package:technicaltestpragma/widgets/image_error_handler.dart';
+import 'package:technicaltestpragma/widgets/shimmer.dart';
 
 import '../models/CatsBreedModel.dart';
 import '../utils/app_colors.dart';
@@ -15,6 +19,11 @@ class CatItemScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    SchedulerBinding.instance.addPostFrameCallback((_) async{
+      Get.find<BreedDetailsPageController>().getBreedImagesList(cat.id!);
+    });
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: Dimensions.height10,horizontal: Dimensions.width20),
       child: Card(
@@ -31,11 +40,17 @@ class CatItemScreen extends StatelessWidget {
               child: Container(
                   height: Dimensions.pageViewContainer * 1.5,
                   width: Dimensions.screenWidth * 0.9,
-                  child: ImageWithErrorHandler(
-                    imageUrl: 'https://cdn2.thecatapi.com/images/${cat.referenceImageId}.jpg',
-                    height: Dimensions.screenWidth! * 0.8,
-                    width: Dimensions.screenHeight! * 0.5,
-                  )
+                  child: GetBuilder<BreedDetailsPageController>(builder: (controller){
+                    if(controller.catsBreedImagesMap.containsKey(cat.id) && controller.catsBreedImagesMap[cat.id]!.isNotEmpty){
+                      return ImageWithErrorHandler(
+                        //imageUrl: 'https://cdn2.thecatapi.com/images/${cat.referenceImageId}.jpg',
+                        imageUrl: controller.catsBreedImagesMap[cat.id]![0].url!,
+                        height: Dimensions.screenWidth! * 0.8,
+                        width: Dimensions.screenHeight! * 0.5,
+                      );
+                    }
+                    return const ShimmerWidget();
+                  })
               ),
             ),
             Positioned(

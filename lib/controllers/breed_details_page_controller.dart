@@ -12,8 +12,8 @@ class BreedDetailsPageController extends GetxController{
     required this.apiRepository
   });
 
-  List<CatsBreedImagesModel> _catsBreedImageList = [];
-  List<CatsBreedImagesModel> get catsBreedImageList => _catsBreedImageList;
+  Map<String,List<CatsBreedImagesModel>> _catsBreedImagesMap = {};
+  Map<String,List<CatsBreedImagesModel>> get catsBreedImagesMap => _catsBreedImagesMap;
 
   bool _loading = false;
   bool get loading => _loading;
@@ -25,10 +25,17 @@ class BreedDetailsPageController extends GetxController{
 
     Response response = await apiRepository.getBreedImagesList(catId);
     if(response.statusCode == 200){
-      _catsBreedImageList=[];
+
+      List<CatsBreedImagesModel> _catsBreedImageList=[];
       _catsBreedImageList.addAll(CatsBreedImagesListModel.fromJson(response.body).catBreedsImagesList);
+
+      if(!_catsBreedImagesMap.containsKey(catId)){
+        _catsBreedImagesMap.putIfAbsent(catId, (){
+          return _catsBreedImageList;
+        });
+        update();
+      }
       _loading=false;
-      update();
     }else{
 
     }

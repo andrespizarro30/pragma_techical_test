@@ -35,7 +35,7 @@ class CatsDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     cat.name!,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: Dimensions.font26, fontWeight: FontWeight.bold),
                   ),
                   Text(cat.description!),
                   SizedBox(height: 16.0),

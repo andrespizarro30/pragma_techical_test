@@ -4,6 +4,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:technicaltestpragma/controllers/breed_details_page_controller.dart';
+import 'package:technicaltestpragma/widgets/shimmer.dart';
 
 import '../models/CatsBreedImagesModel.dart';
 import '../utils/app_colors.dart';
@@ -45,7 +46,7 @@ class _PagerViewScreenState extends State<PagerViewScreen> {
           _currPageValue = pageController.page!;
         });
       });
-      _loadResources(catId);
+      //_loadResources(catId);
     });
 
   }
@@ -59,7 +60,7 @@ class _PagerViewScreenState extends State<PagerViewScreen> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<BreedDetailsPageController>(builder: (controller){
-      return controller.catsBreedImageList.isNotEmpty ?
+      return controller.catsBreedImagesMap[catId]!.isNotEmpty ?
       Column(
         children: [
           Container(
@@ -67,22 +68,22 @@ class _PagerViewScreenState extends State<PagerViewScreen> {
             height: Dimensions.pageView * 1.1,
             child: PageView.builder(
                 controller: pageController,
-                itemCount: controller.catsBreedImageList.length,
+                itemCount: controller.catsBreedImagesMap[catId]!.length,
                 itemBuilder: (context, index){
                   return Container(
-                      child: _buildPageItem(index,controller.catsBreedImageList[index])
+                      child: _buildPageItem(index,controller.catsBreedImagesMap[catId]![index])
                   );
                 }
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20),
+            padding: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20,top: Dimensions.height10),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   DotsIndicator(
-                    dotsCount: controller.catsBreedImageList.length,
+                    dotsCount: controller.catsBreedImagesMap[catId]!.length,
                     position: _currPageValue.round(),
                     mainAxisSize: MainAxisSize.min,
                     decorator: DotsDecorator(
@@ -103,21 +104,7 @@ class _PagerViewScreenState extends State<PagerViewScreen> {
         padding: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20),
         child: Column(
           children: [
-            Container(
-                width: Dimensions.screenWidth,
-                height: Dimensions.pageView,
-                child: Shimmer.fromColors(
-                    baseColor: Colors.grey.shade400,
-                    highlightColor: Colors.white,
-                    child: Container(
-                        width:Dimensions.screenWidth,
-                        height: Dimensions.pageView,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.shade400
-                        )
-                    )
-                )
-            ),
+            const ShimmerWidget(),
             SizedBox(height: Dimensions.height10,)
           ],
         ),
@@ -158,7 +145,7 @@ class _PagerViewScreenState extends State<PagerViewScreen> {
     );
   }
 
-  Future<void> _loadResources(String catId) async{
+  /*Future<void> _loadResources(String catId) async{
     await Get.find<BreedDetailsPageController>().getBreedImagesList(catId);
-  }
+  }*/
 }

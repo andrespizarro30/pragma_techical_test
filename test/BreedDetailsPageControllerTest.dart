@@ -31,9 +31,9 @@ void main() {
       await controller.getBreedImagesList("someCatId");
 
       expect(controller.loading, false);
-      expect(controller.catsBreedImageList.length, 2);
-      expect(controller.catsBreedImageList[0].url, 'https://example.com/image1.jpg');
-      expect(controller.catsBreedImageList[1].url, 'https://example.com/image2.jpg');
+      expect(controller.catsBreedImagesMap["someCatId"]!.length, 2);
+      expect(controller.catsBreedImagesMap["someCatId"]![0].url, 'https://example.com/image1.jpg');
+      expect(controller.catsBreedImagesMap["someCatId"]![1].url, 'https://example.com/image2.jpg');
     });
 
     test('loading should be true while fetching data', () async {
