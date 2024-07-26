@@ -9,7 +9,6 @@ import 'package:technicaltestpragma/pages/home/cats_detail_page.dart';
 import 'package:technicaltestpragma/widgets/waiting_container.dart';
 
 import '../../push_notifications/push_notification_system.dart';
-import '../../utils/dimensions.dart';
 import '../../widgets/search_text.dart';
 
 
