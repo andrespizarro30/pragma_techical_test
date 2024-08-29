@@ -46,6 +46,11 @@ jobs:
         run : |
           echo "Github_USERNAME_SECRET: ${{env.username}}"
           echo "Github_PASSWORD_SECRET: ${{env.password}}"
+
+      - name: "Showing value just if user is correct"
+        if: ${{env.username == 'andrespizarro3839'}}
+        run : |
+          echo "Response: Usuario es correcto"
       
       
 
