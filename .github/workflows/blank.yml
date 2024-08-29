@@ -50,7 +50,11 @@ jobs:
       - name: "Showing value just if user is correct"
         if: ${{env.username != '' && env.password != ''}}
         run : |
-          echo "Response: Usuario es correcto"
+          echo "Response: Usuario y contrasena existen"
+
+      - name: "Showing repo variables"
+        run: |
+          echo "Version de proyecto: ${{vars.PROJECT_VERSION}}"
       
       
 
