@@ -24,13 +24,13 @@ class CatDetailColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return GetBuilder<CatsFBController>(builder: (controller){
-      return Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GetBuilder<CatsFBController>(builder: (controller){
+          return Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               BigText(text: cat.name!,size: Dimensions.font16 * 1.2,maxLines: 2,),
@@ -45,15 +45,19 @@ class CatDetailColumn extends StatelessWidget {
               ),
               SmallText(text: controller.likes.containsKey(cat.id) ? controller.likes[cat.id].toString() : "0")
             ],
-          ),
-          SizedBox(height: Dimensions.height10,),
-          StarsWidget(stars: mediaStats),
-          SizedBox(height: Dimensions.height10,),
-          BigText(text: cat.temperament!,size: Dimensions.font16/1.3,maxLines: 1),
-          SizedBox(height: Dimensions.height10,),
-          BigText(text: cat.origin!,size: Dimensions.font16/1.3,maxLines: 1)
-        ],
-      );
+          );
+        }),
+        SizedBox(height: Dimensions.height10,),
+        StarsWidget(stars: mediaStats),
+        SizedBox(height: Dimensions.height10,),
+        BigText(text: cat.temperament!,size: Dimensions.font16/1.3,maxLines: 1),
+        SizedBox(height: Dimensions.height10,),
+        BigText(text: cat.origin!,size: Dimensions.font16/1.3,maxLines: 1)
+      ],
+    );
+
+    return GetBuilder<CatsFBController>(builder: (controller){
+
     });
   }
 }

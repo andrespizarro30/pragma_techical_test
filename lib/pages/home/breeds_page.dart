@@ -19,7 +19,7 @@ class BreedsPage extends StatefulWidget {
   State<BreedsPage> createState() => _BreedsPageState();
 }
 
-class _BreedsPageState extends State<BreedsPage> {
+class _BreedsPageState extends State<BreedsPage> with WidgetsBindingObserver {
 
   @override
   void initState() {
@@ -90,6 +90,39 @@ class _BreedsPageState extends State<BreedsPage> {
     pushNotificationSystem.initializeCloudMessaging();
     pushNotificationSystem.generateMessagingToken();
 
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    switch (state) {
+      case AppLifecycleState.resumed:
+        print('App is resumed');
+        break;
+      case AppLifecycleState.inactive:
+        print('App is inactive');
+        break;
+      case AppLifecycleState.paused:
+        print('App is paused');
+        break;
+      case AppLifecycleState.detached:
+        print('App is detached');
+        break;
+      case AppLifecycleState.hidden:
+        // TODO: Handle this case.
+    }
   }
 
 }
